@@ -1,7 +1,6 @@
 # Random Names for NodeJS
 ## How to install
-```bash
-  npm install simple_random_names```
+`npm install simple_random_names`
 ## How to use
 ```JavaScript
 //import
