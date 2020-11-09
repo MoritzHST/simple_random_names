@@ -11,6 +11,6 @@ const randomNames = new RandomNames("en")
 const userName = randomNames.getRandomName();
 ```
 
-##Supported Locales
+## Supported Locales
 - en
 - de
