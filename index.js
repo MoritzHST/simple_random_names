@@ -1,18 +1,15 @@
 var RandomNames = function() {
   function RandomNames(locale) {
-    this.data = {}
-    switch (locale.toLowerCase()){
-      case "en":
-          var Locale = require("./locales/en/index.js")
-          var locale = new Locale();
-          this.data.adjectives = locale.getAdjectives()
-          this.data.nouns = locale.getNouns()
+    var curLocale = locale
+    if (!curLocale){
+      curLocale = "en";
     }
+    var Locale = require("./locales/" +curLocale.toLowerCase()+ "/index.js")
+    this.locale = new Locale();
   }
 
   RandomNames.prototype.getRandomName = function() {
-    var adjective = this.data.adjectives[Math.floor(Math.random() * this.data.adjectives.length)]
-    var noun = this.data.nouns[Math.floor(Math.random() * this.data.nouns.length)]
+    let {adjective, noun} = this.locale.getRandomName()
 
     return capitalizeFirstLetter(adjective) + capitalizeFirstLetter(noun)
   }

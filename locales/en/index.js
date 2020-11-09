@@ -4,12 +4,11 @@ var Locale = function() {
     this.nouns = require("./nouns.json")
   }
 
-  Locale.prototype.getAdjectives = function(){
-    return this.adjectives
-  }
+  Locale.prototype.getRandomName = function(){
+    var noun = this.nouns[Math.floor(Math.random() * this.nouns.length)]
+    var adjective = this.adjectives[Math.floor(Math.random() * this.adjectives.length)]
 
-  Locale.prototype.getNouns = function(){
-    return this.nouns
+    return {noun: noun, adjective: adjective}
   }
 
   return Locale
